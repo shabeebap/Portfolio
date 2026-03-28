@@ -12,6 +12,8 @@ const skillCategories = [
       "OpenAI API",
       "Agentic Workflows",
       "LLM Integration",
+
+      "Retrievel Augmented Generation",
     ],
   },
   {

@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaTwitter, FaInstagram } from 'react-icons/fa';
 import { cn } from '@/lib/utils';
 import Image from 'next/image';
 
@@ -36,6 +36,7 @@ export function Hero() {
     { icon: FaGithub, href: '#' },
     { icon: FaLinkedin, href: '#' },
     { icon: FaTwitter, href: '#' },
+    { icon: FaInstagram, href: '#' },
   ];
 
   return (
