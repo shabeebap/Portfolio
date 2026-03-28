@@ -84,8 +84,8 @@ export function Hero() {
           className="z-20 order-2 md:order-1 text-center md:text-left pt-8 md:pt-0"
         >
           <p className="mx-auto max-w-xs text-sm leading-relaxed text-foreground/80 md:mx-0">{mainText}</p>
-          <a href="#work" className="mt-4 inline-block text-sm font-medium text-foreground underline decoration-from-font hover:text-accent transition-colors">
-            View My Work
+          <a href="#contact" className="mt-8 inline-block px-8 py-3 text-sm font-extrabold tracking-widest text-background bg-accent rounded-full hover:scale-105 hover:shadow-[0_0_20px_rgba(250,204,21,0.4)] transition-all duration-300 uppercase">
+            Contact Me
           </a>
         </motion.div>
 
