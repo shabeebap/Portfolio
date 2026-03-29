@@ -7,8 +7,8 @@ import { ThemeProvider } from "../components/ThemeProvider";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Next.js Portfolio",
-  description: "Modern portfolio built with Next.js and Tailwind CSS",
+  title: "Shabeeb AP | Frontend Engineer • AI & Backend",
+  description: "AI-ready frontend engineer building modern web apps, intelligent interfaces, and scalable backend systems.",
 };
 
 export default function RootLayout({
