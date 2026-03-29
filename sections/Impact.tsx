@@ -1,7 +1,8 @@
 "use client";
 
 import { useRef, useEffect } from "react";
-import { motion, useInView, animate } from "framer-motion";
+import { motion, animate } from "framer-motion";
+import { useInViewAnimation } from "@/hooks/useInViewAnimation";
 import { cn } from "@/lib/utils";
 
 interface CounterProps {
@@ -13,11 +14,10 @@ interface CounterProps {
 }
 
 const AnimatedCounter = ({ from, to, prefix = "", suffix = "", duration = 2 }: CounterProps) => {
-  const nodeRef = useRef<HTMLSpanElement>(null);
-  const inView = useInView(nodeRef, { once: true, margin: "-50px" });
+  const { ref: nodeRef, isInView } = useInViewAnimation<HTMLSpanElement>({ triggerOnce: true, rootMargin: "-50px" });
 
   useEffect(() => {
-    if (inView && nodeRef.current) {
+    if (isInView && nodeRef.current) {
       const controls = animate(from, to, {
         duration: duration,
         ease: "easeOut",
@@ -29,7 +29,7 @@ const AnimatedCounter = ({ from, to, prefix = "", suffix = "", duration = 2 }: C
       });
       return () => controls.stop();
     }
-  }, [inView, from, to, prefix, suffix, duration]);
+  }, [isInView, from, to, prefix, suffix, duration]);
 
   return (
     <span ref={nodeRef} className="tabular-nums">
@@ -63,6 +63,9 @@ const impactData = [
 ];
 
 export function Impact() {
+  const { ref: headerRef, isInView: isHeaderInView } = useInViewAnimation<HTMLDivElement>({ triggerOnce: true, rootMargin: "-100px" });
+  const { ref: gridRef, isInView: isGridInView } = useInViewAnimation<HTMLDivElement>({ triggerOnce: true, rootMargin: "-50px" });
+
   return (
     <section id="impact" className="relative py-32 bg-background overflow-hidden">
       {/* Subtle Background Elements */}
@@ -71,9 +74,9 @@ export function Impact() {
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12">
         <motion.div
+          ref={headerRef}
           initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
+          animate={isHeaderInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.6 }}
           className="text-center mb-20"
         >
@@ -90,13 +93,12 @@ export function Impact() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {impactData.map((item, index) => (
             <motion.div
               key={item.title}
               initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
+              animate={isGridInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               whileHover={{ y: -8, transition: { duration: 0.2 } }}
               className={cn(

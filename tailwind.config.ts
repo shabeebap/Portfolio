@@ -11,9 +11,9 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "#0a0a0a",
-        foreground: "#ededed",
-        accent: "#facc15",
+        background: "rgba(var(--background), <alpha-value>)",
+        foreground: "rgba(var(--foreground), <alpha-value>)",
+        accent: "rgba(var(--accent), <alpha-value>)",
       },
     },
   },

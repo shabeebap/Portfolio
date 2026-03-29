@@ -3,6 +3,18 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    --background: 255, 255, 255;
+    --foreground: 17, 24, 39;
+    --accent: 217, 119, 6;
+  }
+  
+  .dark {
+    --background: 10, 10, 10;
+    --foreground: 237, 237, 237;
+    --accent: 250, 204, 21;
+  }
+
   * {
     margin: 0;
     padding: 0;

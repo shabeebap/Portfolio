@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { FaGithub } from "react-icons/fa";
+import { useInViewAnimation } from "@/hooks/useInViewAnimation";
 
 const projects = [
   {
@@ -25,6 +26,9 @@ const projects = [
 ];
 
 export function Projects() {
+  const { ref: headerRef, isInView: isHeaderInView } = useInViewAnimation<HTMLDivElement>({ triggerOnce: true, rootMargin: "-100px" });
+  const { ref: gridRef, isInView: isGridInView } = useInViewAnimation<HTMLDivElement>({ triggerOnce: true, rootMargin: "-50px" });
+
   return (
     <section id="work" className="relative py-32 bg-background overflow-hidden">
       {/* Background ambient light */}
@@ -32,9 +36,9 @@ export function Projects() {
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12">
         <motion.div
+          ref={headerRef}
           initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
+          animate={isHeaderInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.6 }}
           className="text-center mb-20"
         >
@@ -48,16 +52,15 @@ export function Projects() {
         </motion.div>
 
         {/* Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
             <motion.div
               key={project.title}
               initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
+              animate={isGridInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
               transition={{ duration: 0.6, delay: index * 0.15, type: "spring", bounce: 0.3 }}
               whileHover={{ y: -10 }}
-              className="group relative flex flex-col justify-between p-8 h-full rounded-3xl border border-foreground/5 bg-foreground/[0.02] backdrop-blur-sm overflow-hidden hover:bg-foreground/[0.04] hover:border-accent/40 hover:shadow-[0_15px_40px_-15px_rgba(250,204,21,0.25)] transition-all duration-300"
+              className="group relative flex flex-col justify-between p-8 h-full rounded-3xl border border-foreground/5 bg-foreground/[0.02] backdrop-blur-sm overflow-hidden hover:bg-foreground/[0.04] hover:border-accent/40 hover:shadow-[0_15px_40px_-15px_rgba(var(--accent),0.25)] transition-all duration-300"
             >
               {/* Card internal glowing gradient on hover */}
               <div className="absolute inset-0 bg-gradient-to-br from-accent/0 to-transparent group-hover:from-accent/5 transition-all duration-500 rounded-3xl" />

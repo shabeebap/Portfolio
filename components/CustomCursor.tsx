@@ -26,7 +26,7 @@ export function CustomCursor() {
 
   useEffect(() => {
     if (!mounted) return;
-    
+
     // Only show custom cursor on screens that support hover (not mobile touch devices)
     if (window.matchMedia("(pointer: coarse)").matches) return;
 

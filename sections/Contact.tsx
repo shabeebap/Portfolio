@@ -55,7 +55,7 @@ export function Contact() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               aria-label="Copy email address to clipboard"
-              className="group relative flex items-center justify-between gap-6 px-6 py-4 md:px-8 md:py-5 min-w-[280px] md:min-w-[340px] bg-foreground/[0.03] border border-white/5 backdrop-blur-md rounded-full cursor-pointer hover:bg-foreground/[0.06] hover:border-accent/30 hover:shadow-[0_10px_40px_-15px_rgba(250,204,21,0.25)] transition-all duration-300"
+              className="group relative flex items-center justify-between gap-6 px-6 py-4 md:px-8 md:py-5 min-w-[280px] md:min-w-[340px] bg-foreground/[0.03] border border-white/5 backdrop-blur-md rounded-full cursor-pointer hover:bg-foreground/[0.06] hover:border-accent/30 hover:shadow-[0_10px_40px_-15px_rgba(var(--accent),0.25)] transition-all duration-300"
             >
               <div className="flex items-center gap-4">
                 <div className="flex items-center justify-center w-10 h-10 rounded-full bg-accent/10 text-accent group-hover:bg-accent group-hover:text-background transition-colors duration-300">
@@ -106,7 +106,7 @@ export function Contact() {
                   aria-label={`Follow me on ${social.name}`}
                   whileHover={{ y: -5, scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
-                  className="flex items-center justify-center w-14 h-14 rounded-2xl bg-foreground/[0.02] border border-foreground/5 text-foreground/60 hover:bg-accent hover:border-transparent hover:text-background hover:shadow-[0_0_20px_rgba(250,204,21,0.4)] transition-all duration-300"
+                  className="flex items-center justify-center w-14 h-14 rounded-2xl bg-foreground/[0.02] border border-foreground/5 text-foreground/60 hover:bg-accent hover:border-transparent hover:text-background hover:shadow-[0_0_20px_rgba(var(--accent),0.4)] transition-all duration-300"
                 >
                   <social.icon className="w-6 h-6" />
                 </motion.a>

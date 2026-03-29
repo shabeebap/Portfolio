@@ -73,10 +73,10 @@ export function Experience() {
                 <div key={exp.company} className="relative flex flex-col md:flex-row items-center w-full min-h-[250px] group">
 
                   {/* Node/Dot - Desktop */}
-                  <div className="hidden md:block absolute left-1/2 top-1/2 w-5 h-5 rounded-full bg-accent outline outline-[6px] outline-background -translate-x-1/2 -translate-y-1/2 z-10 shadow-[0_0_20px_rgba(250,204,21,0.5)] transition-transform duration-300 group-hover:scale-125" />
+                  <div className="hidden md:block absolute left-1/2 top-1/2 w-5 h-5 rounded-full bg-accent outline outline-[6px] outline-background -translate-x-1/2 -translate-y-1/2 z-10 shadow-[0_0_20px_rgba(var(--accent),0.5)] transition-transform duration-300 group-hover:scale-125" />
 
                   {/* Node/Dot - Mobile */}
-                  <div className="block md:hidden absolute left-4 top-10 w-5 h-5 rounded-full bg-accent outline outline-[6px] outline-background z-10 shadow-[0_0_20px_rgba(250,204,21,0.5)]" />
+                  <div className="block md:hidden absolute left-4 top-10 w-5 h-5 rounded-full bg-accent outline outline-[6px] outline-background z-10 shadow-[0_0_20px_rgba(var(--accent),0.5)]" />
 
                   {/* Left spacer for odd rows (desktop) */}
                   {!isEven && <div className="hidden md:block md:w-1/2" />}
@@ -94,7 +94,7 @@ export function Experience() {
                       viewport={{ once: true, margin: "-100px" }}
                       transition={{ duration: 0.6, type: "spring", bounce: 0.4, delay: index * 0.15 }}
                       whileHover={{ y: -8, scale: 1.01 }}
-                      className="ml-12 md:ml-0 p-8 rounded-3xl border border-white/5 bg-foreground/[0.02] backdrop-blur-sm hover:border-accent/40 transition-all duration-300 hover:shadow-[0_15px_40px_-15px_rgba(250,204,21,0.15)] group-hover:bg-foreground/[0.04]"
+                      className="ml-12 md:ml-0 p-8 rounded-3xl border border-white/5 bg-foreground/[0.02] backdrop-blur-sm hover:border-accent/40 transition-all duration-300 hover:shadow-[0_15px_40px_-15px_rgba(var(--accent),0.15)] group-hover:bg-foreground/[0.04]"
                     >
                       <div className="flex flex-col xl:flex-row xl:items-center justify-between mb-4 gap-4">
                         <h3 className="text-2xl font-bold text-foreground leading-tight">{exp.role}</h3>

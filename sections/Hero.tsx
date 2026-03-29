@@ -5,10 +5,13 @@ import { motion } from 'framer-motion';
 import { FaGithub, FaLinkedin, FaTwitter, FaInstagram } from 'react-icons/fa';
 import { cn } from '@/lib/utils';
 import Image from 'next/image';
+import { ThemeToggle } from '../components/ThemeToggle';
 
 const NavLink = ({ href, children }: { href: string; children: React.ReactNode }) => (
   <a
     href={href}
+    target={href.includes('.pdf') ? "_blank" : undefined}
+    rel={href.includes('.pdf') ? "noopener noreferrer" : undefined}
     className="text-sm font-medium tracking-widest text-foreground/60 transition-colors hover:text-foreground"
   >
     {children}
@@ -26,7 +29,7 @@ export function Hero() {
   const navLinks = [
     { label: 'HOME', href: '#' },
     { label: 'WORK', href: '#work' },
-    { label: 'ABOUT', href: '#about' },
+    { label: 'RESUME', href: '#resume' },
     { label: 'CONTACT', href: '#contact' },
   ];
 
@@ -55,24 +58,27 @@ export function Hero() {
         >
           {logoText}
         </motion.div>
-        <div className="hidden items-center space-x-8 md:flex">
-          {navLinks.map((link) => (
-            <NavLink key={link.label} href={link.href}>
-              {link.label}
-            </NavLink>
-          ))}
+        <div className="flex items-center gap-4 md:gap-8">
+          <div className="hidden items-center space-x-8 md:flex">
+            {navLinks.map((link) => (
+              <NavLink key={link.label} href={link.href}>
+                {link.label}
+              </NavLink>
+            ))}
+          </div>
+          <ThemeToggle />
+          <motion.button
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5 }}
+            className="flex flex-col space-y-1.5 md:hidden"
+            aria-label="Open menu"
+          >
+            <span className="block h-0.5 w-6 bg-foreground"></span>
+            <span className="block h-0.5 w-6 bg-foreground"></span>
+            <span className="block h-0.5 w-5 bg-foreground"></span>
+          </motion.button>
         </div>
-        <motion.button
-          initial={{ opacity: 0, x: 20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.5 }}
-          className="flex flex-col space-y-1.5 md:hidden"
-          aria-label="Open menu"
-        >
-          <span className="block h-0.5 w-6 bg-foreground"></span>
-          <span className="block h-0.5 w-6 bg-foreground"></span>
-          <span className="block h-0.5 w-5 bg-foreground"></span>
-        </motion.button>
       </header>
 
       {/* Main Content Area */}
@@ -85,7 +91,7 @@ export function Hero() {
           className="z-20 order-2 md:order-1 text-center md:text-left pt-8 md:pt-0"
         >
           <p className="mx-auto max-w-xs text-sm leading-relaxed text-foreground/80 md:mx-0">{mainText}</p>
-          <a href="#contact" className="mt-8 inline-block px-8 py-3 text-sm font-extrabold tracking-widest text-background bg-accent rounded-full hover:scale-105 hover:shadow-[0_0_20px_rgba(250,204,21,0.4)] transition-all duration-300 uppercase">
+          <a href="#contact" className="mt-8 inline-block px-8 py-3 text-sm font-extrabold tracking-widest text-background bg-accent rounded-full hover:scale-105 hover:shadow-[0_0_20px_rgba(var(--accent),0.4)] transition-all duration-300 uppercase">
             Contact Me
           </a>
         </motion.div>
@@ -96,7 +102,7 @@ export function Hero() {
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
-            className="absolute z-0 h-[280px] w-[280px] rounded-full bg-[#facc15] md:h-[400px] md:w-[400px] lg:h-[500px] lg:w-[500px] xl:h-[600px] xl:w-[600px]"
+            className="absolute z-0 h-[280px] w-[280px] rounded-full bg-accent md:h-[400px] md:w-[400px] lg:h-[500px] lg:w-[500px] xl:h-[600px] xl:w-[600px]"
           ></motion.div>
           <motion.img
             src="/profile.png"
