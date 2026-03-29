@@ -64,10 +64,11 @@ export async function POST(req: Request) {
     const data = await response.json();
     return NextResponse.json({ response: data.choices[0].message.content });
 
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error("AI Route Error:", error);
+
     return NextResponse.json(
-      { error: "An error occurred while communicating with the AI. Please try again later." },
+      { error: "Something went wrong" },
       { status: 500 }
     );
   }
