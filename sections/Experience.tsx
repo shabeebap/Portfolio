@@ -37,11 +37,11 @@ const experiences = [
 
 export function Experience() {
   return (
-    <section id="experience" className="relative py-32 bg-background overflow-hidden">
+    <section id="experience" className="relative py-16 md:py-32 bg-background overflow-hidden">
       {/* Decorative Background Glow */}
       <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-[600px] h-[600px] bg-accent/5 blur-[120px] rounded-full pointer-events-none" />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-12">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

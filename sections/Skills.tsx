@@ -13,7 +13,10 @@ const skillCategories = [
       "OpenAI API",
       "Agentic Workflows",
       "LLM Integration",
-      "Retrievel Augmented Generation",
+      "RAG",
+      "MCP",
+      "AI SDKs",
+      "Multi-modal AI"
     ],
   },
   {
@@ -119,12 +122,12 @@ export function Skills() {
   const { ref: headerRef, isInView: isHeaderInView } = useInViewAnimation<HTMLDivElement>({ triggerOnce: true, rootMargin: "-100px" });
 
   return (
-    <section id="skills" className="relative py-32 bg-background overflow-hidden">
+    <section id="skills" className="relative py-16 md:py-32 bg-background overflow-hidden">
       {/* Subtle Background Glows */}
       <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-accent/5 blur-[150px] rounded-full pointer-events-none" />
       <div className="absolute bottom-0 left-1/4 w-[400px] h-[400px] bg-blue-500/5 blur-[150px] rounded-full pointer-events-none" />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-12">
         <motion.div
           ref={headerRef}
           initial={{ opacity: 0, y: 20 }}

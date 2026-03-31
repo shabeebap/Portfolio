@@ -26,7 +26,7 @@ const getLocationForImage = (index: number) => {
   if (imgNum >= 3 && imgNum <= 5) return "Idukki & Munnar";
   if (imgNum >= 6 && imgNum <= 10) return "Ooty, India";
   if (imgNum >= 11 && imgNum <= 16) return "Saudi Arabia";
-  return "Wayanad Tentagram";
+  return "Wayanad Tentgram";
 };
 
 const getCategoryForImage = (index: number): Category => {
@@ -81,8 +81,8 @@ export function Photography() {
   }, [lightboxIndex, handleKeyDown]);
 
   return (
-    <section id="photography" className="relative py-32 bg-background font-sans">
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
+    <section id="photography" className="relative py-16 md:py-32 bg-background font-sans">
+      <div className="max-w-7xl mx-auto px-4 md:px-12">
         {/* Header */}
         <motion.div
           ref={headerRef}

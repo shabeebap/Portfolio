@@ -67,12 +67,12 @@ export function Impact() {
   const { ref: gridRef, isInView: isGridInView } = useInViewAnimation<HTMLDivElement>({ triggerOnce: true, rootMargin: "-50px" });
 
   return (
-    <section id="impact" className="relative py-32 bg-background overflow-hidden">
+    <section id="impact" className="relative py-16 md:py-32 bg-background overflow-hidden">
       {/* Subtle Background Elements */}
       <div className="absolute inset-0 bg-[size:24px_24px] pointer-events-none" />
       <div className="absolute left-1/2 top-0 -translate-x-1/2 w-[800px] h-[400px]  blur-[120px] rounded-full pointer-events-none" />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12">
+      <div className="relative max-w-7xl mx-auto px-4 md:px-12">
         <motion.div
           ref={headerRef}
           initial={{ opacity: 0, y: 20 }}

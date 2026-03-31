@@ -30,11 +30,11 @@ export function Projects() {
   const { ref: gridRef, isInView: isGridInView } = useInViewAnimation<HTMLDivElement>({ triggerOnce: true, rootMargin: "-50px" });
 
   return (
-    <section id="work" className="relative py-32 bg-background overflow-hidden">
+    <section id="work" className="relative py-16 md:py-32 bg-background overflow-hidden">
       {/* Background ambient light */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-accent/5 blur-[150px] rounded-full pointer-events-none" />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-12">
         <motion.div
           ref={headerRef}
           initial={{ opacity: 0, y: 20 }}

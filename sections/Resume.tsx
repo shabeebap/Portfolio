@@ -25,11 +25,11 @@ export function Resume() {
   }, [isModalOpen]);
 
   return (
-    <section id="resume" className="relative py-32 bg-background overflow-hidden font-sans">
+    <section id="resume" className="relative py-16 md:py-32 bg-background overflow-hidden font-sans">
       {/* Decorative Blur Geometry */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-accent/5 blur-[150px] rounded-[100%] pointer-events-none" />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 flex flex-col md:flex-row items-center justify-between gap-16">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-12 flex flex-col md:flex-row items-center justify-between gap-16">
         
         {/* Text Content */}
         <motion.div
