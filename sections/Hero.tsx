@@ -153,7 +153,7 @@ export function Hero() {
           <motion.img
             src="/profile.png"
             alt="Shabeeb AP"
-            className="absolute bottom-[-2rem] md:bottom-[-3rem] left-1/6 -translate-x-1/2 z-10 h-[80vh] md:h-[100vh] w-auto max-w-none object-contain object-bottom drop-shadow-[0_20px_50px_rgba(0,0,0,0.5)] grayscale contrast-100 pointer-events-none"
+            className="absolute bottom-[-2rem] md:bottom-[-3rem] left-1/6 -translate-x-1/2 z-10 h-[55vh] sm:h-[70vh] md:h-[100vh] w-auto max-w-none object-contain object-bottom drop-shadow-[0_20px_50px_rgba(0,0,0,0.5)] grayscale contrast-100 pointer-events-none"
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: [0.22, 1, 0.36, 1], delay: 0.4 }}
